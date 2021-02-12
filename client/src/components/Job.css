@@ -1,0 +1,27 @@
+.job {
+    width: 60%;
+    display: flex;
+    margin: 20px 0;
+    padding: 20px 10px;
+    justify-content: space-between;
+}
+
+.job:first-child {
+    margin-top: -5px;
+}
+
+@media screen and (max-width: 600px){
+    .job {
+        width: 85%;
+        margin: 10px 0;
+    }
+    .job:first-child {
+        margin-top: 5px;
+    }
+}
+  
+.job:hover {
+    cursor: pointer;
+    color: #3f3f3f;  
+}
+  
