@@ -5,9 +5,7 @@ const initialState = {
   username:null,
 };
 
-// const initialRegister = {
-//   token: null,
-// };
+
 
 export function authenticationReducer(state = initialState, action) {
   switch (action.type) {
@@ -22,11 +20,3 @@ export function authenticationReducer(state = initialState, action) {
   }
 }
 
-// export function registerReducer(state = initialRegister, action) {
-//   switch (action.type) {
-//     case REGISTER_USER:
-//       return { ...state, token: action.payload };
-//     default:
-//       return { ...state };
-//   }
-// }

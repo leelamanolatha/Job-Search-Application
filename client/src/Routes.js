@@ -5,12 +5,10 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import {cloneDeep} from 'lodash';
-import { checkIfSaved, saveJobs } from './apiCalls/savejobs';
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import {fetchJobs} from './apiCalls/fetchJobs';
-import HeroSection from "./components/HeroSection";
+import Main from "./components/Main";
 import Profile from "./components/Profile";
 import JobBoard from "./components/JobBoard";
 import { connect } from 'react-redux';
@@ -35,44 +33,7 @@ function Routes({ loggedIn, authenticateUserProp, username }) {
 		fetchJobs(updateFiltered);
 	}, []); 
 
-	// useEffect(()=>{
-	// 	if(username!==null){
-    //         // console.log(jobs.length);
-    //         let jobsCopy = cloneDeep(jobsList);
-    //         jobsCopy.map((job)=>{
-    //         let isSaved;
-    //         console.log("XXXXXX")
-    //         checkIfSaved({ jobId : job.id, username: username, jobCompany: job.company}).then((res)=>{
-    //             isSaved = res.data;
-    //         });
-    //         return {
-    //             ...job,
-    //             isSaved: isSaved,
-    //         }
-    //         });
-    //         updateFiltered(jobsCopy);
-    //     }
-	// },[jobsList])
-
-	// const handleClick = (job) =>{
-	// 	if(username!==null){
-    //         // console.log(jobs.length);
-    //         let jobsCopy = cloneDeep(jobsList);
-    //         jobsCopy.map((job)=>{
-    //         let isSaved;
-    //         // console.log("XXXXXX")
-    //         checkIfSaved({ jobId : job.id, username: username, jobCompany: job.company}).then((res)=>{
-	// 			console.log(res.data);
-    //             isSaved = res.data;
-    //         });
-    //         return {
-    //             ...job,
-    //             isSaved: isSaved,
-    //         }
-    //         });
-    //         updateFiltered(jobsCopy);
-    //     }
-	// }
+	
 
   	useEffect(() => {
     	authenticateUserProp();
@@ -112,7 +73,7 @@ function Routes({ loggedIn, authenticateUserProp, username }) {
 		} else {
 			filteredJobs = currentJobs;
 		}
-		// console.log(filteredJobs);
+		
 		updateFiltered(filteredJobs);
 	};
 
@@ -122,7 +83,7 @@ function Routes({ loggedIn, authenticateUserProp, username }) {
 				{/* Route to main page to search jobs */}
         		<Route exact path="/">
 					<Provider template={AlertTemplate} {...options}>
-            			<HeroSection jobs={filteredList} searchOnChange={handleSearchChange} />
+            			<Main jobs={filteredList} searchOnChange={handleSearchChange} />
 						<JobBoard filteredJobs={filteredList} />
 					</Provider>
         		</Route>

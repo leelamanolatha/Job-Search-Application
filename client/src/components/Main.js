@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { authenticateUser, logoutUser } from '../redux/actions';
-import './HeroSection.css';
+import './Main.css';
 import JobSearchBar from './JobSearchBar';
 import Login from './Authenticate/Login';
 
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function HeroSection({ loggedIn, authenticateUserProp, logoutUserProp, jobs, searchOnChange}) {
+function Main({ loggedIn, authenticateUserProp, logoutUserProp, jobs, searchOnChange}) {
     
     const numJobs = jobs.length;
     const classes = useStyles();
@@ -176,4 +176,4 @@ const mapDispatchToProps = (dispatch) => ({
     logoutUserProp: () => dispatch(logoutUser()),
 });
   
-export default connect(mapStateToProps, mapDispatchToProps)(HeroSection);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

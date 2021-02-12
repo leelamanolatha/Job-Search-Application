@@ -1,13 +1,10 @@
 import { AUTHENTICATE_USER } from './actionTypes';
 import { getSessionCookie, setSessionCookie } from '../helpers/session';
 import * as Cookies from 'js-cookie';
-// let logstatus = {
-//     username: null,
-// };
+
 
 export const authenticateUser = () => {
   const session = getSessionCookie('session');
-  // console.log(logstatus.username);
   if (session) {
     return {
       type: AUTHENTICATE_USER,
