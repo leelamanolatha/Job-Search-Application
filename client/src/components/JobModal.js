@@ -67,7 +67,7 @@ export default function JobModal({job, open, handleClose, handleSave, username }
                     <Button onClick={handleClose} color="primary">
                         Close
                     </Button>
-                    <Button onClick={()=>{handleSave(); setSaved(true)}} disabled={isSaved ? true : false} color="primary">
+                    <Button onClick={()=>{handleSave(setSaved);}} disabled={isSaved ? true : false} color="primary">
                         {isSaved ? <> Already Saved </>  : <> Save </> }
                     </Button>
                     <a href={job.url} target="_blank">

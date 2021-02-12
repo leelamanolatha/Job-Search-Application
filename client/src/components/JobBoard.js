@@ -29,7 +29,7 @@ function JobBoard({filteredJobs, loggedIn, username, authenticateUserProp}) {
     const handleClose = () => {
         setOpen(false);
     };
-    const handleSave = () => {
+    const handleSave = (setSave) => {
         if(!loggedIn){
             alert.error("Login to save the job.");
         }else{            
@@ -42,6 +42,7 @@ function JobBoard({filteredJobs, loggedIn, username, authenticateUserProp}) {
             console.log(jobDetails);
             saveJobs(jobDetails).then(()=>{
                 alert.success("Saved the job.");
+                setSave(true);
             }).catch(()=>{
                 alert.error("Couldn't save the job.");
             });
